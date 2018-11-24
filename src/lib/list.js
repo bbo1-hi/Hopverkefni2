@@ -1,5 +1,6 @@
 import { empty, createElement } from './helpers';
 import { generateImage, generateTitle } from './converter';
+import { loadSavedLectures } from './storage';
 
 export default class List {
   constructor() {
@@ -19,22 +20,37 @@ export default class List {
 
   showData(data) {
     data.lectures.map((item) => {
+      console.log(item);
       this.showItem(item);
     });
   }
 
+  addSaved(data) {
+    const saved = loadSavedLectures();
+
+    data.lectures[0].finished = saved.indexOf(data.lectures[0].slug) >= 0;
+
+    return data;
+  }
+
   // DT2
   /////////////////////////////////////////////
-  /*
-  showList(data) {
-    const image = el('div');
-    const img = el('img');
+ /* 
+  showData(data) {
+    const image = createElement('div');
+    const img = createElement('img');
     img.setAttribute('src', data.thumbnail);
     img.setAttribute('alt', '');
     image.appendChild(img);
 
-    const category = el('a', data.category);
-    category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug');
+    const category = createElement('a', data.category);
+    category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
+    const finished = createElement('h1', data.finished.toString());
+
+    const textElement = createElement('div', category, finished);
+
+    const finalItem = createElement('a', image, textElement);
+    finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug)
 
     this.container.appendChild(finalItem);
   }
@@ -52,7 +68,12 @@ export default class List {
   load() {
     empty(this.container);
     this.loadLectures()
-      .then((data) => this.showData(data));
+      .then(data => this.addSaved(data))
+      .then(data => this.showData(data))
+      .catch((error) => {
+        console.error(error)
+        // Bæta villumeðhöndlun
+      });
   }
 }
 
