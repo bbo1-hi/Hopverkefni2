@@ -2,12 +2,37 @@
 <html lang="is">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hópverkefni 2</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lora|Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="grid.css">
+  <link rel="stylesheet" href="./dist/styles.css">
 </head>
 <body>
-  <div class = "list">
+  <header class="header">
+    <div class="header__content">
+      <p class="header__overtitle">Vefforritun</p>
+      <h1 class="header__title">Fyrirlestrar</h1>         
+    </div>
+  </header>
+
+  <div class="buttons">
+      <div class="buttons__container">
+        <button class="buttons__button">HTML</button>
+        <button class="buttons__button">CSS</button>
+        <button class="buttons__button">JavaScript</button>
+      </div>
   </div>
-  <script src="./dist/bundle.js"></script>
+
+  <section class="fyrirlestrar">
+    <div class="fyrirlestrar__container">
+      <div class="list">
+      </div>
+    </div>
+  </section>
+  
+    <script src="./dist/bundle.js"></script>
 
 </body>
 </html>

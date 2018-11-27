@@ -1,0 +1,10 @@
+@import "config";
+
+.list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: $max-width;
+    margin: 0 auto;
+    
+}

@@ -1,0 +1,32 @@
+@import "config";
+
+.buttons {
+    display: flex;
+    max-width: $max-width;
+    margin: 0 auto;
+    display: inline-block;
+    justify-content: center;
+
+    margin-top: $gutter;
+
+    &__container {
+        display: inline-block;
+        margin: 0 auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+       
+      }
+
+
+    &__button {
+      border: none;
+      background-color: $color-4;
+      padding: 1rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      
+      font-size: 2rem;    
+    }
+}

@@ -33,29 +33,6 @@ export default class List {
     return data;
   }
 
-  // DT2
-  /////////////////////////////////////////////
- /* 
-  showData(data) {
-    const image = createElement('div');
-    const img = createElement('img');
-    img.setAttribute('src', data.thumbnail);
-    img.setAttribute('alt', '');
-    image.appendChild(img);
-
-    const category = createElement('a', data.category);
-    category.setAttribute('href', '/fyrirlestur.html?slug='+data.slug);
-    const finished = createElement('h1', data.finished.toString());
-
-    const textElement = createElement('div', category, finished);
-
-    const finalItem = createElement('a', image, textElement);
-    finalItem.setAttribute('href', '/fyrirlestur.html?slug='+data.slug)
-
-    this.container.appendChild(finalItem);
-  }
-  */
-  /////////////////////////////////////////////
 
   showItem(item){
     const titleElement = generateTitle(item.title, item.slug);

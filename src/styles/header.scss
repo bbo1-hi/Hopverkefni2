@@ -1,0 +1,36 @@
+@import "config";
+
+.header {
+  margin-bottom: $gutter * 2;
+  background-image: url("../img/header.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 25%;
+  background-color: $color-1;
+  display: flex;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  &__content {
+    display: flex;
+    max-width: $max-width;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  &__overtitle {
+    text-align: center;
+    margin-top: 2*$gutter;
+    font-family: $font-main;
+  }
+  
+  &__title {
+    margin-bottom: 2*$gutter;
+
+    font-family: $font-heading;
+    font-size: 2.0rem;
+    font-weight: 600;
+
+    text-align: center;
+  }
+}
