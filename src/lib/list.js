@@ -28,7 +28,7 @@ export default class List {
   addSaved(data) {
     const saved = loadSavedLectures();
 
-    data.lectures[0].finished = saved.indexOf(data.lectures[0].slug) >= 0;
+    data.lectures.finished = saved.indexOf(data.lectures.slug) >= 0;
 
     return data;
   }

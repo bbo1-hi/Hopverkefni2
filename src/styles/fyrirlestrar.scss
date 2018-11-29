@@ -2,16 +2,16 @@
 
 .fyrirlestrar {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     max-width: $max-width;
     margin: 0 auto;
 
     &__container {
       display: flex;
-      
       font-family: $font-main;
-    }    
+    }
+
 }
 
 .list {
@@ -22,3 +22,4 @@
   justify-content: space-around;
 //  max-width: 0.33*$max-width;
 }
+

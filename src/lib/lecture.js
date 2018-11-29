@@ -5,6 +5,7 @@ import { loadSavedLectures, SaveLecture } from './storage';
 export default class Lecture {
     constructor() {
         this.container = document.querySelector('.lecture');
+    //    this.header = document.querySelector('.fyrirlestur-header');
         this.url = '../lectures.json';
     }
 
@@ -25,8 +26,8 @@ export default class Lecture {
                 return found;
             });        
     }
+
     generateContent(content) {
-        //    const contentTypes = ['text', 'image', 'heading', 'quote', 'code', 'list', 'youtube'];
         console.log("dddd", content)
         content.forEach((item) => {
 
@@ -47,7 +48,7 @@ export default class Lecture {
                 
                 case 'heading':
                     console.log('ætti að koma HEADING');
-                    const headingElement = document.createElement('h1');
+                    const headingElement = document.createElement('h2');
                     headingElement.appendChild(document.createTextNode(item.data));
                     this.container.appendChild(headingElement);             
                 break;
@@ -75,8 +76,12 @@ export default class Lecture {
             
                 case 'youtube':
                     console.log('ætti að koma VIDEO');
-                    const videoElement = document.createElement('iframe');
-                    videoElement.appendChild(document.createTextNode(item.data));
+                    console.log('item.data = ', item.data);
+
+                    const videoElement = createElement('iframe');
+                    videoElement.setAttribute('src', item.data);
+                    videoElement.setAttribute('frameborder', 0);
+                    
                     this.container.appendChild(videoElement);             
                 break;
 
