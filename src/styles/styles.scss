@@ -19,18 +19,7 @@ html { /* stylelint-disable-line */
   font-family: $font-main;
   font-size: 16px;
 }
-/*
-body {
-  display: flex;
-  max-width: $max-width;
-  margin: 0 auto;
-  flex-direction: row;
 
-  @media (min-width: 500px) {
-    flex-direction: column;
-  }
-}
-*/
 img { /* stylelint-disable-line */
   max-width: 100%; // var gefið í 100%
 }
@@ -39,3 +28,4 @@ img { /* stylelint-disable-line */
 @import "header";
 @import "buttons";
 @import "fyrirlestrar";
+//@import "fyrirlestur";

@@ -5,15 +5,11 @@
     max-width: $max-width;
     margin-top: 3*$gutter;
     margin: 0 auto;
-   
-    
-
+  
     &__container {
       display: flex;
-      margin: auto;
-        
+      margin: auto;      
       }
-
 
     &__button {
       border: none;

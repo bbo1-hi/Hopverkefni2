@@ -1,5 +1,5 @@
 import { empty, createElement } from './helpers';
-import { generateImage, generateTitle } from './converter';
+import { generateImage, generateTitle, generateCategory } from './converter';
 import { loadSavedLectures } from './storage';
 
 export default class List {
@@ -35,12 +35,26 @@ export default class List {
 
 
   showItem(item){
-    const titleElement = generateTitle(item.title, item.slug);
-    this.container.appendChild(titleElement);
+    
+    const fBox = createElement('div');
+    fBox.setAttribute('class', 'list__card');
+    const fTitill = createElement('div');  
+    fTitill.setAttribute('class', 'list__card__text');
+    
+    const imageElement = generateImage(item.thumbnail);
+    imageElement.setAttribute('href',item.slug);
+    fBox.appendChild(imageElement);
 
-    let imageElement = generateImage(item.thumbnail);
-    this.container.appendChild(imageElement);
+    const categoryElement = generateCategory(item.category, item.slug);
+    fTitill.appendChild(categoryElement);
+
+    const titleElement = generateTitle(item.title, item.slug);
+    fTitill.appendChild(titleElement);
+
+    fBox.appendChild(fTitill);
+    this.container.appendChild(fBox);
   }
+
 
   load() {
     empty(this.container);

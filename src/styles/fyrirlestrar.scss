@@ -2,16 +2,16 @@
 
 .fyrirlestrar {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     max-width: $max-width;
     margin: 0 auto;
 
     &__container {
       display: flex;
+      
       font-family: $font-main;
-    }
-
+    }    
 }
 
 .list {
@@ -21,5 +21,41 @@
   flex-wrap: wrap;
   justify-content: space-around;
 //  max-width: 0.33*$max-width;
+  &__card {
+    max-width: 0.33*$max-width;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5*$gutter;
+
+    &__text {
+      background-color: $color-3;
+      padding: 0.5*$gutter;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    position: relative;
+    width: 100%;
+    color: $color-1;
+    font-family: $font-main;
+
+  }
+  h2 {
+    position: relative;
+
+    width: 100%;
+    color: $color-1;
+
+    text-decoration: none;
+    font-family: $font-heading;
+    
+    font-size: 1.5rem;
+    font-weight: 600;
+    
+  }
 }
 

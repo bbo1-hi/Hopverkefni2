@@ -5,7 +5,6 @@ import { loadSavedLectures, SaveLecture } from './storage';
 export default class Lecture {
     constructor() {
         this.container = document.querySelector('.lecture');
-    //    this.header = document.querySelector('.fyrirlestur-header');
         this.url = '../lectures.json';
     }
 
@@ -41,8 +40,8 @@ export default class Lecture {
                 break;
                 
                 case 'image':
-                    console.log('ætti að koma MYND');
-                    let imageContent = generateImage(item.data);  
+                    console.log('ætti að k  oma MYND');
+                    const imageContent = generateImage(item.data);  
                     this.container.appendChild(imageContent);            
                 break;
                 
@@ -70,7 +69,17 @@ export default class Lecture {
                 case 'list':
                     console.log('ætti að koma LIST');
                     const listElement = document.createElement('ol');
+
+                    item.data.forEach(function(entry) {
+                        const listItem = document.createElement('li');
+                        listItem.appendChild(document.createTextNode(entry));
+                        listElement.appendChild(listItem);
+                        
+                        console.log(listItem);
+                    });
+
                     listElement.appendChild(document.createTextNode(item.data));
+
                     this.container.appendChild(listElement);              
                 break;
             
@@ -90,17 +99,23 @@ export default class Lecture {
             
     }
     showLecture(item){
+      const fHeader = createElement('div');
+      fHeader.setAttribute('class', 'lecture__header');
+
+      const imageElement = generateImage(item.image);
+      fHeader.appendChild(imageElement);
+
       const categoryElement = generateCategory(item.category, item.slug);
-      this.container.appendChild(categoryElement);    
+      fHeader.appendChild(categoryElement);    
 
       const titleElement = generateTitle(item.title, item.slug);
-      this.container.appendChild(titleElement);
+      fHeader.appendChild(titleElement);
         
-      let imageElement = generateImage(item.image);
-      this.container.appendChild(imageElement);
-      
+      this.container.appendChild(fHeader);
+
       console.log("data", item.content)
-      let contentElement = this.generateContent(item.content);
+      const contentElement = this.generateContent(item.content);
+
       
       this.container.appendChild(contentElement);
     }
@@ -129,5 +144,3 @@ export default class Lecture {
 
     }
 }  
-
-
