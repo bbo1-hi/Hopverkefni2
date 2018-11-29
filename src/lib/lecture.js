@@ -41,8 +41,16 @@ export default class Lecture {
                 
                 case 'image':
                     console.log('ætti að k  oma MYND');
-                    const imageContent = generateImage(item.data);  
-                    this.container.appendChild(imageContent);            
+                    const imageContent = generateImage(item.data);
+
+                    this.container.appendChild(imageContent);
+
+                    if (item.caption) {
+                        const captionElement = document.createElement('p');
+                        captionElement.appendChild(document.createTextNode(item.caption));
+                        this.container.appendChild(captionElement); 
+                    }
+                                
                 break;
                 
                 case 'heading':
@@ -56,12 +64,18 @@ export default class Lecture {
                     console.log('ætti að koma QUOTE');
                     const quoteElement = document.createElement('q');
                     quoteElement.appendChild(document.createTextNode(item.data));
-                    this.container.appendChild(quoteElement);             
+                    this.container.appendChild(quoteElement);
+                    if (item.attribute) {
+                        const attributeElement = document.createElement('q');
+                        attributeElement.appendChild(document.createTextNode(item.attribute));
+                        this.container.appendChild(attributeElement); 
+                    }
+                            
                 break;
             
                 case 'code':
                     console.log('ætti að koma CODE');
-                    const codeElement = document.createElement('p');
+                    const codeElement = document.createElement('code');
                     codeElement.appendChild(document.createTextNode(item.data));
                     this.container.appendChild(codeElement);             
                 break;
@@ -90,6 +104,7 @@ export default class Lecture {
                     const videoElement = createElement('iframe');
                     videoElement.setAttribute('src', item.data);
                     videoElement.setAttribute('frameborder', 0);
+                    videoElement.setAttribute('allowfullscreen', 0);
                     
                     this.container.appendChild(videoElement);             
                 break;
@@ -99,25 +114,27 @@ export default class Lecture {
             
     }
     showLecture(item){
-      const fHeader = createElement('div');
-      fHeader.setAttribute('class', 'lecture__header');
-
-      const imageElement = generateImage(item.image);
-      fHeader.appendChild(imageElement);
-
-      const categoryElement = generateCategory(item.category, item.slug);
-      fHeader.appendChild(categoryElement);    
-
-      const titleElement = generateTitle(item.title, item.slug);
-      fHeader.appendChild(titleElement);
-        
-      this.container.appendChild(fHeader);
+        const imageElement = generateImage(item.image);
+        console.log('item image', item.image);
+        const iLink = 'url(\'' + item.image + '\')';
+        console.log('why not', iLink); //fæ: "url('img/code.jpg')" ---útur þessu
+        document.querySelector('.fheader').style.backgroundImage = `${iLink}`;
+      //  document.querySelector('.fheader__image').appendChild(imageElement);
+  
+        const categoryElement = generateCategory(item.category, item.slug);
+        document.querySelector('.fheader__overtitle').appendChild(categoryElement);    
+  
+        const titleElement = generateTitle(item.title, item.slug);
+        document.querySelector('.fheader__title').appendChild(titleElement);
+  
 
       console.log("data", item.content)
+      const contentContainer = createElement('div');
+      contentContainer.setAttribute('class', 'lecture__contentContainer');
       const contentElement = this.generateContent(item.content);
 
-      
-      this.container.appendChild(contentElement);
+      contentContainer.appendChild(contentElement);
+      this.container.appendChild(contentContainer);
     }
 
     finished() {

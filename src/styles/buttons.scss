@@ -6,12 +6,12 @@
     margin-top: 3*$gutter;
     margin: 0 auto;
   
-    &__container {
+    &__filter {
       display: flex;
       margin: auto;      
       }
 
-    &__button {
+    &__filt {
       border: none;
       border-radius: 1rem;
       background-color: $color-4;

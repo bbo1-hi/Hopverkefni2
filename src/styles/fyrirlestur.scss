@@ -1,53 +1,58 @@
 @import "config";
 
+.fheader {
+    margin: 0 auto;
+    max-width: $max-width;
+
+    &__image {
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-color: $color-2;
+        opacity: 0.6;
+
+        a {
+            text-decoration: none;
+        }
+        p {
+            text-align: center;
+            padding-top: 2*$gutter; 
+            font-family: $font-main;
+            color: $color-1;
+        }
+          
+        h1 {
+            padding-bottom: 3*$gutter; 
+            
+            font-family: $font-heading;
+            text-align: center;
+            color: $color-1;
+            font-size: 2.0rem;
+            font-weight: 600;
+        }
+    }
+}
+
 .fyrirlestur {
+    margin: 0 auto;
+    max-width: 0.66*$max-width;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 100%;
-    margin: 0 auto;
     
     &__container {
         display: flex;
-        max-width: 100%;
+    //    max-width: 66%;
     }
 }
 
 
 .lecture {
+    margin: 0 auto;
+    
     display: flex;
-    flex-direction: row;
-    
-    flex-wrap: wrap;
-    justify-content: center;
-
-    &__header {
-        max-width: $max-width;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-top: 0.5*$gutter;
-        
-        p {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            color: $color-1;
-        }
-
-        h2 {
-            display: flex;
-            justify-content: center;
-
-            color: $color-1;
-    
-            text-decoration: none;
-            font-family: $font-heading;
-            
-            font-size: 3.0rem;
-            font-weight: 600;
-        }
-    }
+    flex-direction: column;
 
     a {
     text-decoration: none;
@@ -55,13 +60,47 @@
 
     p {
         font-family: $font-main;
+        margin: $gutter;
+        color: $color-1;
+    }
+    q {
+        font-family: $font-main;
+        text-align: center;
+        background-color: $color-2;
+        padding: $gutter;
+        color: $color-1;
+    }
+
+    code {
+        padding: $gutter;
+    }
+
+    ol {
+        font-family: $font-main;
+        padding-left: $gutter;
+        padding-right: $gutter;
+        color: $color-1;
+    }
+
+    img {
+
+    }
+
+    iframe {
+        margin-top: 2*$gutter;
+        margin-bottom: $gutter;
+        height: 400px;
     }
   
     h2 {
+        text-align: center;
+        padding-top: 2*$gutter;
+        padding-bottom: $gutter;
         font-family: $font-heading;
         
         font-size: 1.5rem;
         font-weight: 600;
     }
+    
 }
 

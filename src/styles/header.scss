@@ -23,6 +23,7 @@
     text-align: center;
     margin-top: 3*$gutter;
     font-family: $font-main;
+    color: $color-1;
   }
   
   &__title {
@@ -31,6 +32,7 @@
     font-family: $font-heading;
     font-size: 3.0rem;
     font-weight: 600;
+    color: $color-1;
 
     text-align: center;
   }
