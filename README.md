@@ -1,3 +1,79 @@
+# "Hóp"-verkefni 2
+Þetta verkefni var reyndar ekki unnið í hóp heldur sem einstaklingsverkefni. Það má því segja að verkaskpting hafi verið eftirfarandi:
+
+## Baldvin Blær Oddsson
+Sá um html og javascript og að halda í vonina fram á síðustu mínútur að ná að púsla öllum bitum saman þannig að öll virkni og útlit væru rétt...
+
+## Baldvin Blær Oddsson
+Sá um útlitsstillingar með scss, ásamt því að draga veruleikatengsl sín í efa eftir að heilu síðurnar hurfu reglulega við minnstu breytingar eða jafnvel engar...
+
+## Baldvin Blær Oddsson
+Sá um uppsetningu á git og öllum tólum sem þurfti til, ásamt því að debugga og endurinstalla npm pökkum og node.js þar sem úrelt fartölva hafði gaman af því að uninstalla án fyrirvara eða skýringa...
+
+## Almennt um samstarfið
+Illa gekk fyrir hópinn að finna tíma og vinna almennilega saman, sökum veikinda hjá einum í hópnum og athyglisbrests hjá öðrum hvíldi mestallt álagið því á 1/3 hluta hópsins og hann rann á endanum út á tíma...
+
+
+
+# Um uppbyggingu verkefnis
+## Forsíða
+Á index.html birtist forsíða með yfirlitslista yfir fyrirlestra. Virknin á bakvið html síðuna er í list.js sem aftur stiðst við föll frá:
+
+    helpers.js 
+    converters.js
+    storage.js (virkni hér ekki kláruð)
+### Útlit fyrir forsíðu
+Unnið með sass og skipt í:
+
+    fyrirlestrar.scss
+    header.scss
+    buttons.scss
+
+með stuðningi frá:
+
+    config.scss
+
+## Fyrirlestrarsíða
+Þegar smellt er á einhvern fyrirlestur á forsíðunni er farið yfir á fyrirlestur.html þar sem efni viðkomandi fyrirlesturs birtist. Javascriptið til að birta efni fyrirlesturs er í skránni:
+
+    lecture.js
+
+### Útlit fyrir fyrirlestrasíðu
+Unnið með sass:
+
+    fyrirlestur.scss
+
+með stuðningi frá:
+
+    config.scss
+
+Allt sass svo tekið saman undir styles.scss og þýtt yfir í styles.css.
+
+
+
+## Gegnum vinnu verkefnis var notað:
+
+    git (ábyrgðaraðili á git stóð sig í þetta skiptið)
+    eslint (sá aðili í hópnum sem bar ábyrgð stóð sig ekki)
+    stylelint (sá aðili í hópnum sem bar ábyrgð stóð sig ekki)
+
+Verkefnið var keyrt með npm run dev sem keyrði browser-sync, rollup, sass-watch og fleira eins og til var ætlast.
+
+## Mörg púsl í smíðum en ókláruð
+Virkni sem óskað var, s.s.filtering og utanumhald á kláruðum fyrirlestrum ástamt fleiru, er hafin, í smíðum og verður væntanleg snemma á nýju ári.
+
+## Heimasvæði neitaði að vinna með Json
+Þrátt fyrir að allir í hopnum hafi kvatt heimasvæðið að allavega finna hann Json og alla hans fyrirlestra neitaði heimasvæðið því með öllu.
+
+    => Verkefnið er þó í nýjustu, lengst komnu útgáfu inná github.
+
+# Ekki lengra að sinni
+Lengri verður þetta ekki núna, við í hópnum saman allir þrír (Baldvin, Baldvin og Baldvin) skilum því inn því sem komið er.
+
+
+
+
+# Gefin fyrirmæli og verkefnalýsing:
 # Hópverkefni 2
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
