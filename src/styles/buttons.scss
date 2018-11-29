@@ -6,23 +6,12 @@
     margin-top: 3*$gutter;
     margin: 0 auto;
   
-
-    
-
     &__container {
       display: flex;
-      margin: auto;
-        
+      margin: auto;      
       }
 
-
     &__button {
-/*
-      display: block;
-      width: 100%;
-      max-width: 50px;
-      cursor: pointer;
-*/
       border: none;
       border-radius: 1rem;
       background-color: $color-4;

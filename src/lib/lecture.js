@@ -8,7 +8,6 @@ export default class Lecture {
         this.url = '../lectures.json';
     }
 
-
     loadLecture(slug) {
         return fetch(this.url)
             .then((res) => {
@@ -26,8 +25,8 @@ export default class Lecture {
                 return found;
             });        
     }
+
     generateContent(content) {
-        //    const contentTypes = ['text', 'image', 'heading', 'quote', 'code', 'list', 'youtube'];
         console.log("dddd", content)
         content.forEach((item) => {
 
@@ -41,14 +40,14 @@ export default class Lecture {
                 break;
                 
                 case 'image':
-                    console.log('ætti að koma MYND');
-                    let imageContent = generateImage(item.data);  
+                    console.log('ætti að k  oma MYND');
+                    const imageContent = generateImage(item.data);  
                     this.container.appendChild(imageContent);            
                 break;
                 
                 case 'heading':
                     console.log('ætti að koma HEADING');
-                    const headingElement = document.createElement('h1');
+                    const headingElement = document.createElement('h2');
                     headingElement.appendChild(document.createTextNode(item.data));
                     this.container.appendChild(headingElement);             
                 break;
@@ -70,14 +69,28 @@ export default class Lecture {
                 case 'list':
                     console.log('ætti að koma LIST');
                     const listElement = document.createElement('ol');
+
+                    item.data.forEach(function(entry) {
+                        const listItem = document.createElement('li');
+                        listItem.appendChild(document.createTextNode(entry));
+                        listElement.appendChild(listItem);
+                        
+                        console.log(listItem);
+                    });
+
                     listElement.appendChild(document.createTextNode(item.data));
+
                     this.container.appendChild(listElement);              
                 break;
             
                 case 'youtube':
                     console.log('ætti að koma VIDEO');
-                    const videoElement = document.createElement('iframe');
-                    videoElement.appendChild(document.createTextNode(item.data));
+                    console.log('item.data = ', item.data);
+
+                    const videoElement = createElement('iframe');
+                    videoElement.setAttribute('src', item.data);
+                    videoElement.setAttribute('frameborder', 0);
+                    
                     this.container.appendChild(videoElement);             
                 break;
 
@@ -86,17 +99,23 @@ export default class Lecture {
             
     }
     showLecture(item){
+      const fHeader = createElement('div');
+      fHeader.setAttribute('class', 'lecture__header');
+
+      const imageElement = generateImage(item.image);
+      fHeader.appendChild(imageElement);
+
       const categoryElement = generateCategory(item.category, item.slug);
-      this.container.appendChild(categoryElement);    
+      fHeader.appendChild(categoryElement);    
 
       const titleElement = generateTitle(item.title, item.slug);
-      this.container.appendChild(titleElement);
+      fHeader.appendChild(titleElement);
         
-      let imageElement = generateImage(item.image);
-      this.container.appendChild(imageElement);
-      
+      this.container.appendChild(fHeader);
+
       console.log("data", item.content)
-      let contentElement = this.generateContent(item.content);
+      const contentElement = this.generateContent(item.content);
+
       
       this.container.appendChild(contentElement);
     }

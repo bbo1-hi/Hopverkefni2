@@ -16,7 +16,7 @@ export function generateTitle(title, slug){
     const link = document.createElement('a');
     link.href = `/fyrirlestur.html?slug=${slug}`;
 
-    const titleElement = document.createElement('h1');
+    const titleElement = document.createElement('h2');
     titleElement.appendChild(document.createTextNode(title));
     
     link.appendChild(titleElement);

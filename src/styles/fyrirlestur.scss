@@ -1,0 +1,67 @@
+@import "config";
+
+.fyrirlestur {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+    
+    &__container {
+        display: flex;
+        max-width: 100%;
+    }
+}
+
+
+.lecture {
+    display: flex;
+    flex-direction: row;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__header {
+        max-width: $max-width;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0.5*$gutter;
+        
+        p {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            color: $color-1;
+        }
+
+        h2 {
+            display: flex;
+            justify-content: center;
+
+            color: $color-1;
+    
+            text-decoration: none;
+            font-family: $font-heading;
+            
+            font-size: 3.0rem;
+            font-weight: 600;
+        }
+    }
+
+    a {
+    text-decoration: none;
+    }
+
+    p {
+        font-family: $font-main;
+    }
+  
+    h2 {
+        font-family: $font-heading;
+        
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
